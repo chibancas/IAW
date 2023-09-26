@@ -7,6 +7,6 @@ export class AppService {
   }
 
   getAll():string{
-    return "hello";
+    return "listado";
   }
 }
