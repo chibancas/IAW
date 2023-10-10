@@ -1,0 +1,4 @@
+// get llama a datos
+// post agrega un nuevo dato
+// put modifica el dato que se le pase por parametro
+// delete elimina el dato

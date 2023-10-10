@@ -1,5 +1,6 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { EditorialesService } from './editoriales.service';
+import { CreateEditorialDto } from './dto/create-editorial.dto';
 
 @Controller('editoriales')
 export class EditorialesController {
@@ -21,10 +22,10 @@ export class EditorialesController {
         return this.editorialesService.getById(id)
     }
 
-    @Post()
-    new() {
-        return this.editorialesService.new()
-    }
+    // @Post()
+    // new() {
+    //     return this.editorialesService.new()
+    // }
 
     @Put()
     update(){
@@ -36,4 +37,12 @@ export class EditorialesController {
         return this.editorialesService.delete()
     }
     
+    @Post()
+    create(@Body() createEditorialDto: CreateEditorialDto){
+        return {
+            data: createEditorialDto,
+            msg: 'Editorial creada correctamente',
+            status: 200
+        }
+    }
 }

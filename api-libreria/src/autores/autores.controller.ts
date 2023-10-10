@@ -1,5 +1,7 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { AutoresService } from './autores.service';
+import { domainToASCII } from 'url';
+import { CreateAutorDto } from './dto/create-autores.dto';
 
 @Controller('autores')
 export class AutoresController {
@@ -21,10 +23,10 @@ export class AutoresController {
         return this.autoresService.getById(id)
     }
 
-    @Post()
-    new() {
-        return this.autoresService.new
-    }
+    // @Post()
+    // new() {
+    //     return this.autoresService.new
+    // }
 
     @Put()
     update(){
@@ -36,6 +38,14 @@ export class AutoresController {
         return this.autoresService.delete
     }
     
+    @Post()
+    create(@Body() createLibroDto: CreateAutorDto){
+        console.log(createLibroDto)
+        
+        return {
+            data: createLibroDto,
+            msg: 'Autor creado correctamente',
+            status: 200
+        }
+    }
 }
-
-
