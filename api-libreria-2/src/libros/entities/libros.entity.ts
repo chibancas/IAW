@@ -7,6 +7,13 @@ export class Libros {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
+    @PrimaryColumn({
+        type:"text",
+        nullable:false,
+        unique:true
+    })
+    isbn:string
+
     @Column({
         type: 'text',
         nullable: false,

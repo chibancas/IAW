@@ -9,4 +9,9 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('Listado') // --> endpoint listado
+  getAll(){
+    return this.appService.getAll()
+  }
 }
