@@ -5,9 +5,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SeedModule } from './modulos/seed/seed.module';
 import { ConfigModule } from '@nestjs/config';
 import { AutoresModule } from './modulos/autores/autores.module';
+import { ClientesModule } from './modulos/clientes/clientes.module';
 
 @Module({
   imports: [
+    SeedModule,
+    AutoresModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       // type: 'postgres',
@@ -27,8 +30,7 @@ import { AutoresModule } from './modulos/autores/autores.module';
       autoLoadEntities:true,
       synchronize:true
     }),
-    SeedModule,
-    AutoresModule
+    ClientesModule
   ],
   controllers: [AppController],
   providers: [AppService],

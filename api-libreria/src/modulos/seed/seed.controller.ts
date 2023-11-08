@@ -5,12 +5,10 @@ import { UpdateSeedDto } from './dto/update-seed.dto';
 
 @Controller('seed')
 export class SeedController {
-  constructor(private readonly seedService:SeedService){
-
-  }
-  @Get("hola")
-  loadseed(){
-    return this.seedService.loadData();
+  constructor(private readonly seedService:SeedService){}
+  @Get()
+  cargardatos(){
+    return this.seedService.cargardatos()
   }
   
   // @Post()

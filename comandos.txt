@@ -1,2 +1,7 @@
 docker-compose -f /docker/docker-compose.yaml up
 docker-compose -f /docker/docker-compose.yaml down
+
+
+
+crear redes internas
+docker network create --internal mi-red-interna

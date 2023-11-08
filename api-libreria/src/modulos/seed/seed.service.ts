@@ -5,12 +5,13 @@ import { UpdateSeedDto } from './dto/update-seed.dto';
 @Injectable()
 export class SeedService {
 
-  public loadData(){
-    // return{
-    //   msg:"carga masiva de datos"
-    // }
-    return("sasha")
+  public cargardatos(){
+    return{
+      msg:"carga exitosa"
+    };
   }
+
+
   // create(createSeedDto: CreateSeedDto) {
   //   return 'This action adds a new seed';
   // }

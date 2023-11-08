@@ -8,8 +8,9 @@ export class AutoresController {
   constructor(private readonly autoresService: AutoresService) {}
 
   @Post()
-  create(@Body() createAutoreDto: CreateAutoreDto) {
-    return this.autoresService.create(createAutoreDto);
+  create(@Body() createAutoreDto:CreateAutoreDto) {
+    console.log('usuario creado')
+    // return this.autoresService.create(createAutoreDto);
   }
 
   @Get()
