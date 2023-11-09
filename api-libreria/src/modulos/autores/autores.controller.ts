@@ -7,7 +7,7 @@ import { UpdateAutoreDto } from './dto/update-autore.dto';
 export class AutoresController {
   constructor(private readonly autoresService: AutoresService) {}
 
-  @Post()
+  @Post('p')
   create(@Body() createAutoreDto:CreateAutoreDto) {
     console.log('usuario creado')
     // return this.autoresService.create(createAutoreDto);

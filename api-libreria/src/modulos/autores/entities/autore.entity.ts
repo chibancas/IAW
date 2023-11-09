@@ -1,15 +1,15 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
 @Entity()
-export class Autore {
-
+export class Autore{
     @PrimaryGeneratedColumn('increment')
-    id:number
+    id: string;
 
-    @Column({
-        type:"text",
-        unique:false
+    @Column('text',{
+        unique: true,
+        default: 'autor',
+        nullable: true,
     })
-    nombre:string
-
+    nombre: string;
 
 }
