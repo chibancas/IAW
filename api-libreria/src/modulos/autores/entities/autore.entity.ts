@@ -5,11 +5,7 @@ export class Autore{
     @PrimaryGeneratedColumn('increment')
     id: string;
 
-    @Column('text',{
-        unique: true,
-        default: 'autor',
-        nullable: true,
-    })
-    nombre: string;
+    @Column('text',{unique:true})
+    nombre: string
 
 }

@@ -9,8 +9,6 @@ import { ClientesModule } from './modulos/clientes/clientes.module';
 
 @Module({
   imports: [
-    SeedModule,
-    AutoresModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       // type: 'postgres',
@@ -31,7 +29,9 @@ import { ClientesModule } from './modulos/clientes/clientes.module';
       autoLoadEntities:true,
       synchronize:true
     }),
-    ClientesModule
+    ClientesModule,
+    SeedModule,
+    AutoresModule
   ],
   controllers: [AppController],
   providers: [AppService],

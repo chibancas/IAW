@@ -7,10 +7,9 @@ import { UpdateAutoreDto } from './dto/update-autore.dto';
 export class AutoresController {
   constructor(private readonly autoresService: AutoresService) {}
 
-  @Post('p')
+  @Post()
   create(@Body() createAutoreDto:CreateAutoreDto) {
-    console.log('usuario creado')
-    // return this.autoresService.create(createAutoreDto);
+    return this.autoresService.create(createAutoreDto);
   }
 
   @Get()
@@ -18,18 +17,18 @@ export class AutoresController {
     return this.autoresService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.autoresService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.autoresService.findOne(+id);
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAutoreDto: UpdateAutoreDto) {
-    return this.autoresService.update(+id, updateAutoreDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateAutoreDto: UpdateAutoreDto) {
+  //   return this.autoresService.update(+id, updateAutoreDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.autoresService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.autoresService.remove(+id);
+  // }
 }
