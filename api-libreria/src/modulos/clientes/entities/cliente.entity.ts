@@ -1,19 +1,22 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 @Entity()
 export class Cliente {
-    @PrimaryColumn()
+    @PrimaryColumn('text')
     nif: string;
 
-    @Column('text', { unique: false})
+    @Column('text', { unique: false, nullable: true  })
     nombre: string;
 
-    @Column('text', { unique: false})
-    apellido: string;
+    @Column('text', { unique: false, nullable: true  })
+    apellidos: string;
 
-    @Column('text', { unique: false})
+    @Column('text', { unique: false, nullable: true  })
     direccion: string;
 
-    @Column('text', { unique: false, nullable:true})
+    @Column('text', { unique: false, nullable: true })
     localidad: string;
+
+    @Column('text', { unique: false, nullable: true })
+    ciudad: string;
 
 }

@@ -1,11 +1,14 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn, PrimaryColumnCannotBeNullableError, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Autore{
-    @PrimaryGeneratedColumn('increment')
-    id: string;
 
-    @Column('text',{unique:true})
-    nombre: string
+    @PrimaryColumn('text',{})
+    nif: string;
 
+    @Column('text',{
+        unique: true,
+        nullable: false,
+    })
+    nombre: string;
 }

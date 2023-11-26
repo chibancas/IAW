@@ -33,6 +33,6 @@ export class SeedController {
 
   // @Delete(':id')
   // remove(@Param('id') id: string) {
-  //   return this.seedService.remove(+id);
+  //   return this.seedService.(+id);
   // }
 }

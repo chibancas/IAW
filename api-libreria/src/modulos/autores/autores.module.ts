@@ -9,6 +9,7 @@ import { Autore } from './entities/autore.entity';
   providers: [AutoresService],
   imports:[
     TypeOrmModule.forFeature([Autore])
-  ]
+  ],
+  exports: [AutoresService, TypeOrmModule]
 })
 export class AutoresModule {}
