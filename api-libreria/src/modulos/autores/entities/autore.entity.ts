@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn, PrimaryColumnCannotBeNullableError, Prim
 @Entity()
 export class Autore{
 
-    @PrimaryColumn('text',{})
+    @PrimaryColumn('text')
     nif: string;
 
     @Column('text',{

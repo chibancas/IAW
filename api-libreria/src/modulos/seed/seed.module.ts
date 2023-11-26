@@ -6,10 +6,11 @@ import { Seed } from './entities/seed.entity';
 import { AutoresModule } from '../autores/autores.module';
 import { AutoresService } from '../autores/autores.service';
 import { ClientesModule } from '../clientes/clientes.module';
+import { LibrosModule } from '../libros/libros.module';
 
 @Module({
   controllers: [SeedController],
   providers: [SeedService],
-  imports: [AutoresModule,ClientesModule]
+  imports: [AutoresModule,ClientesModule,LibrosModule]
 })
 export class SeedModule {}

@@ -6,6 +6,7 @@ import { SeedModule } from './modulos/seed/seed.module';
 import { ConfigModule } from '@nestjs/config';
 import { AutoresModule } from './modulos/autores/autores.module';
 import { ClientesModule } from './modulos/clientes/clientes.module';
+import { LibrosModule } from './modulos/libros/libros.module';
 
 @Module({
   imports: [
@@ -31,7 +32,8 @@ import { ClientesModule } from './modulos/clientes/clientes.module';
     }),
     ClientesModule,
     SeedModule,
-    AutoresModule
+    AutoresModule,
+    LibrosModule
   ],
   controllers: [AppController],
   providers: [AppService],
