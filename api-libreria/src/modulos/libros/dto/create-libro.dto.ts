@@ -1,4 +1,5 @@
 import { IsString, MinLength, IsOptional, IsDate, IsNumber } from "class-validator";
+import { Autore } from "src/modulos/autores/entities/autore.entity";
 
 export class CreateLibroDto {
     @IsString()
@@ -44,4 +45,8 @@ export class CreateLibroDto {
     @IsNumber()
     @IsOptional()
     precio?: number;
+
+    @IsString()
+    @MinLength(1)
+    autor:Autore
 }

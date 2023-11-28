@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm";
+import { Autore } from "src/modulos/autores/entities/autore.entity";
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, ManyToMany, ManyToOne } from "typeorm";
 
 @Entity()
 export class Libro {
@@ -31,4 +32,11 @@ export class Libro {
 
     @Column("numeric",{ nullable: true })
     precio: number;
+
+    @ManyToOne(
+        ()=> Autore,
+        (autor)=>autor.libros,
+        {cascade:true}
+    )
+    autor?:Autore
 }
