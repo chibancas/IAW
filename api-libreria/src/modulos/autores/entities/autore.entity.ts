@@ -17,5 +17,5 @@ export class Autore{
         ()=> Libro,
         (libro)=>libro.autor
     )
-    libros:Libro[]
+    libros?:Libro[]
 }

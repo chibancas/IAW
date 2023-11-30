@@ -9,8 +9,4 @@ export class CreateAutoreDto{
     @IsString()
     @MinLength(10)
     nombre: string;
-
-    @IsString()
-    @MinLength(1)
-    libro?:string
 }

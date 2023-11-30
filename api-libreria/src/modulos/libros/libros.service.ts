@@ -4,17 +4,24 @@ import { UpdateLibroDto } from './dto/update-libro.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Libro } from './entities/libro.entity';
 import { Repository } from 'typeorm';
+import { AutoresService } from '../autores/autores.service';
 
 @Injectable()
 export class LibrosService {
   constructor(
-    @InjectRepository(Libro) private readonly libroRepository: Repository<Libro>
+    @InjectRepository(Libro)
+    private readonly libroRepository: Repository<Libro>,
+    private readonly autoresService:AutoresService
   ){}
 
   async create(createLibroDto: CreateLibroDto) {
     try {
-      const libro=this.libroRepository.create(createLibroDto)
-      await this.libroRepository.save(libro)
+      // const libro=this.libroRepository.create(createLibroDto)
+      const {autor, ...campos}= createLibroDto
+      const libro=this.libroRepository.create({...campos})
+      const autorObj= await this.autoresService.findOne(autor)
+      libro.autor=autorObj
+      this.libroRepository.save(libro)
       console.log(createLibroDto)
       return{
         message:'El libro se ha creado correctamente',

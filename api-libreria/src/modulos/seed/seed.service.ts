@@ -20,8 +20,8 @@ export class SeedService {
     private readonly clientesService: ClientesService,
     private readonly librosService: LibrosService) { }
 
-  public cargardatos() {
-    this.insertNewAutores();
+   public async cargardatos() {
+    await this.insertNewAutores();
     this.insertNewClientes();
     this.insertNewLibros()
     return {

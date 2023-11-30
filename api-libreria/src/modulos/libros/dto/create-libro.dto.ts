@@ -46,7 +46,8 @@ export class CreateLibroDto {
     @IsOptional()
     precio?: number;
 
+
     @IsString()
-    @MinLength(1)
-    autor:Autore
+    @IsOptional()
+    autor?: string; 
 }

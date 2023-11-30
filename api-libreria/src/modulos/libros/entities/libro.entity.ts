@@ -33,10 +33,17 @@ export class Libro {
     @Column("numeric",{ nullable: true })
     precio: number;
 
+    // @ManyToOne(
+    //     ()=> Autore,
+    //     (autor)=>autor.libros,
+    //     {cascade:true}
+    // )
+    // autor?:Autore
+
     @ManyToOne(
-        ()=> Autore,
-        (autor)=>autor.libros,
-        {cascade:true}
+        () => Autore,
+        (autor) => autor.libros,
+        {cascade: true}
     )
-    autor?:Autore
+    autor?: Autore
 }

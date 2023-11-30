@@ -22,7 +22,7 @@ import { LibrosModule } from './modulos/libros/libros.module';
       // synchronize: true
 
       type:'postgres',
-      host:"192.168.1.213",
+      host:"192.168.8.213",
       port:5433, //poniendo un + convertimos cualquier variable a numero
       database:"apiLibreria",
       username: "postgres",

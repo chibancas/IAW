@@ -38,7 +38,7 @@ export class AutoresService {
         .where({})
         .execute()
     } catch (error) {
-      throw new InternalServerErrorException('Ponte en contacto con el administrador ...')
+      // throw new InternalServerErrorException('Ponte en contacto con el administrador ...')
     }
   }
 
@@ -47,10 +47,14 @@ export class AutoresService {
     return `This action returns all hol`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} autore`;
+  findOne(nif: string) {
+    const autor= this.autoreRepository.findOne({
+      where:{
+        nif
+      }
+    })
+    return autor
   }
-
   update(id: number, updateAutoreDto: UpdateAutoreDto) {
     return `This action updates a #${id} autore`;
   }
