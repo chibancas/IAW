@@ -46,7 +46,7 @@ export class SeedService {
 
   private async insertNewClientes() {
     await this.clientesService.deleteAllClientes();
-    const insertPromisesClientes = [];
+    const insertPromisesClientes = []
     const seedClientes = clientesIniciales
     seedClientes.forEach(async (cliente: CreateClienteDto) => {
       insertPromisesClientes.push(this.clientesService.create(cliente));

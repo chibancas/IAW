@@ -7,6 +7,8 @@ import { ConfigModule } from '@nestjs/config';
 import { AutoresModule } from './modulos/autores/autores.module';
 import { ClientesModule } from './modulos/clientes/clientes.module';
 import { LibrosModule } from './modulos/libros/libros.module';
+import { AuthModule } from './modulos/auth/auth.module';
+import { UserModule } from './modulos/user/user.module';
 
 @Module({
   imports: [
@@ -28,12 +30,15 @@ import { LibrosModule } from './modulos/libros/libros.module';
       username: "postgres",
       password: "usuario",
       autoLoadEntities:true,
-      synchronize:true
+      synchronize:true,
+      logging:true
     }),
     ClientesModule,
     SeedModule,
     AutoresModule,
-    LibrosModule
+    LibrosModule,
+    AuthModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
