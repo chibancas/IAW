@@ -46,19 +46,33 @@ export class LibrosService {
     }
   }
 
-  findAll() {
-    return `This action returns all libros`;
+  async findAll() {
+    try {
+      const libro = await this.libroRepository.find()
+      // return {
+      //   message: 'listado de productos',
+      //   data: producto,
+      //   status: 200
+      // }
+      return libro
+    } catch (error) {
+      throw new InternalServerErrorException("fallo al listar todos los productos")
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} libro`;
-  }
+  // findAll() {
+  //   return `This action returns all libros`;
+  // }
 
-  update(id: number, updateLibroDto: UpdateLibroDto) {
-    return `This action updates a #${id} libro`;
-  }
+  // findOne(id: number) {
+  //   return `This action returns a #${id} libro`;
+  // }
 
-  remove(id: number) {
-    return `This action removes a #${id} libro`;
-  }
+  // update(id: number, updateLibroDto: UpdateLibroDto) {
+  //   return `This action updates a #${id} libro`;
+  // }
+
+  // remove(id: number) {
+  //   return `This action removes a #${id} libro`;
+  // }
 }
