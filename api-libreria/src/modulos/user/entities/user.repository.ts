@@ -8,6 +8,27 @@ export class UserRepository extends Repository<User> {
         super(User, datasource.createEntityManager())
     }
 
+    // async findByEmail(email:string){
+    //     try{
+    //         return await this.createQueryBuilder('USERS')
+    //         .where(`email= :value`, {value:email})
+    //         .getOne()
+    //     }catch(error){
+    //         throw new InternalServerErrorException('fallo al buscar el email');
+    //     }
+    // }
+    
+    // async findByUsername(username:string){
+    //     try{
+    //         return await this.createQueryBuilder('USERS')
+    //         .where(`username= :value`, {value:username})
+    //         .getOne()
+    //     }catch(error){
+    //         throw new InternalServerErrorException('fallo al buscar el username');
+    //     }
+    // }
+
+
     async findByEmail(email:string){
         try{
             return await this.createQueryBuilder('USERS')
@@ -27,5 +48,4 @@ export class UserRepository extends Repository<User> {
             throw new InternalServerErrorException('fallo al buscar el username');
         }
     }
-
 }
