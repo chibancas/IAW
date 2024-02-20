@@ -16,27 +16,27 @@ import { JwtStrategy } from './stategies/jwt-strategy/jwt-strategy';
     UserModule,
     TypeOrmModule.forFeature([UserRepository]),
     PassportModule.register({ defaultStrategy: 'jwt' }),
-    // JwtModule.registerAsync({
-    //   imports: [ConfigModule],
-    //   inject: [ConfigService],
-    //   useFactory: (configservice: ConfigService) => {
-    //     return {
-    //       secret: configservice.get('JWT_SECRET'),
-    //       signOptions: {
-    //         expiresIn: '2h',
-    //         algorithm: 'HS256'
-    //       }
-    //     }
-    //   }
-    // }),
-    // configuramos el JwtModule.register
-    JwtModule.register({
-      secret:'claveSecreta123',
-      signOptions:{
-        expiresIn:"1h",
-        algorithm:'HS256'
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configservice: ConfigService) => {
+        return {
+          secret: configservice.get('JWT_SECRET'),
+          signOptions: {
+            expiresIn: '2h',
+            algorithm: 'HS256'
+          }
+        }
       }
-    })
+    }),
+    // configuramos el JwtModule.register
+    // JwtModule.register({
+    //   secret:'claveSecreta123',
+    //   signOptions:{
+    //     expiresIn:"1h",
+    //     algorithm:'HS256'
+    //   }
+    // })
   ],
   providers: [AuthService, UserRepository, JwtStrategy,ConfigService]
 })

@@ -18,8 +18,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         ){
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-            ignoreExpiration: false,
-            secretOrKey:'claveSecreta123'
+            ignoreExpiration: false, //en false rechaza que acepte tokens caducados
+            secretOrKey: configService.get('JWT_SECRET')
 
         })
     }
