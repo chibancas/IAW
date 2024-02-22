@@ -1,14 +1,18 @@
 import React, { FC } from "react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
-import { IColumn, IProveedor } from "@/interfaces/iProveedores";
+import ColumnLibro, { IColumn, ILibro } from "@/interfaces/ILibros";
 
 
 interface Props {
-    rows: IProveedor[],
-    columns: IColumn[]
+    rows: ILibro[],
+    columns: IColumn[],
+    key:string
 }
 
-export const Tabla:FC<Props> = ({rows, columns}) => {
+export const Tabla:FC<Props> = ({rows, columns,key}) => {
+  const renderCell = React.useCallback (( libro: ILibro,  columnKey: React.Key) => {
+    console.log(rows)
+  },[]);
   return (
     <Table aria-label="Example table with dynamic content">
       <TableHeader columns={columns}>
@@ -16,7 +20,7 @@ export const Tabla:FC<Props> = ({rows, columns}) => {
       </TableHeader>
       <TableBody items={rows}>
         {(item) => (
-          <TableRow key={item.cif}>
+          <TableRow key={item.isbn}>
             {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
           </TableRow>
         )}

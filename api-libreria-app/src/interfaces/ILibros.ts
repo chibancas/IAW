@@ -18,7 +18,7 @@ export interface IColumn {
     label: string;
 }
 
-export const ColumLibro:IColumn[]=[
+export const ColumnLibro:IColumn[]=[
     {
         key:"isbn",
         label:"ISBN",
@@ -41,4 +41,4 @@ export const ColumLibro:IColumn[]=[
     }
 ]
 
-export default ColumLibro;
+export default ColumnLibro;
